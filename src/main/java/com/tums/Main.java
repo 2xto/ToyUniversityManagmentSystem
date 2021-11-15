@@ -1,6 +1,7 @@
 package com.tums;
 
 import com.tums.users.AdminUserGui;
+import com.tums.users.StudentUser;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,7 +20,7 @@ public class Main extends Application {
     Stage window;
     public static void main(String[] args) {
 
-        Database.getInstance();
+        Database.createDatabase();
         Database.createTable();
         launch();
     }
@@ -53,7 +54,8 @@ public class Main extends Application {
             primaryStage.getScene().setRoot(userGui.getRootPane());
             });
         createUserButton.setOnAction(e->{
-
+            StudentUser student = new StudentUser();
+            student.addStudentWindow();
         });
 
         //Creating GridPane
